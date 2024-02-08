@@ -1,11 +1,12 @@
-// TODO: write code here
+document.addEventListener("DOMContentLoaded", () => {
+  const boxCollection = document.querySelectorAll(".box__item");
 
-// comment this to pass build
-const unusedVariable = "variable";
+  function setRandomImg() {
+    boxCollection.forEach((i) => i.classList.remove("box__item_active"));
+    boxCollection[
+      Math.floor(Math.random() * boxCollection.length)
+    ].classList.add("box__item_active");
+  }
 
-// for demonstration purpose only
-export default function demo(value) {
-  return `Demo: ${value}`;
-}
-
-console.log("app.js included");
+  setInterval(setRandomImg, 1000);
+});
